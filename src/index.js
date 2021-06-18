@@ -1,5 +1,5 @@
 const express = require('express');
-const router = require('./routes/index')
+const router = require('./routes/index');
 const morgan = require('morgan');
 
 //Inicialization
@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
 
 //Routes
-app.use('/', router)
+app.use('/', router);
 
 //Server connection
 app.listen(app.get('port'), err => {

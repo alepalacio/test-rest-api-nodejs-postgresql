@@ -6,11 +6,12 @@ const pool = new Pool({
     password: '0711',
     database: 'basicapi',
     port: '5432'
-})
+});
 
-const get = async (req, res) => {
+const get = (req, res) => {
     res.send('Welcome to this basic rest api with nodeJS and postgresql! To check users, try --->  /users');
-}
+};
+
 const getUsers = async (req, res) => {
     try {
         const users = await pool.query('SELECT * FROM users;');
@@ -33,7 +34,7 @@ const singleUser = async (req, res) => {
             status: true,
             message: 'Found user',
             response: user.rows
-        })
+        });
     } catch (error) {
         console.log(error);
     };
@@ -52,7 +53,7 @@ const newUser = async (req, res) => {
                     name, email
                 }
             }
-        })
+        });
         
     } catch (error) {
         console.log(error);
@@ -72,7 +73,7 @@ const updateUser = async (req, res) => {
         res.status(200).json({
             status: true,
             message: `User ${id} updated successfully`
-        })
+        });
     } catch (error) {
         console.log(error);
     };
@@ -86,7 +87,7 @@ const deleteUser = async (req, res) => {
         res.status(200).json({
             status: true,
             message: `User ${id} deleted`,
-        })
+        });
     } catch (error) {
         console.log(error);
     };
