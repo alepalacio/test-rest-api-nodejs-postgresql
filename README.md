@@ -2,7 +2,7 @@
 
 This is a step-by-step repository to learn how to build a basic rest api using these technologies.
 
-*Before starting this tutorial you should know about intermediate Javascript, NodeJS, APIs, SQL databases, HTTP requests, Internet*
+*Before starting this tutorial you should know about basic - intermediate Javascript, NodeJS, APIs, SQL databases, HTTP requests, Internet.*
 
 ---
 
@@ -10,15 +10,15 @@ This is a step-by-step repository to learn how to build a basic rest api using t
 
 --- 
 
-1. Install Node.js on your OS (Windows, Linux or MAC).  Also, you can use the code editor of your preference.  I used VSCode. It's easy to use, intuitive, fast.
+1. Install Node.js on your OS (Windows, Linux or MAC).  Also, you can use the code editor of your preference.  In my case, I have used VSCode. It's easy to use, intuitive and fast.
 
     https://nodejs.org/en/
 
-2. Install postgresql locally following these steps.
+2. Install postgresql locally following these steps:
 
     https://www.postgresql.org/download/
 
-3. Initialize a project.  If you type "--y", then your project will be created automatically, using default settings for your package.json.  If not, then you should type each setting manually, like name of your project, scripts, and others.
+3. Initialize a project.  If you type `--y`, then your project will be created automatically, using default settings for your package.json.  If not, then you should type each setting manually, like name of your project, scripts, and others.
 
     ```
     npm init --y
@@ -36,14 +36,14 @@ This is a step-by-step repository to learn how to build a basic rest api using t
     npm install pg
     ```
 
-6. Use nodemon as a development dependency, to restart automatically your server when modify. If you use "-D", that means it is a development dependency, which is not strictly necessary for your application. Also use morgan as a development dependency, very useful to catch HTTP requests and its status.
+6. Use nodemon as a development dependency, to restart automatically your server when modify. If you use `-D`, that means it is a development dependency, which is not strictly necessary for running your application. Also use morgan as a development dependency, very useful to catch HTTP requests and status.
 
     ```
     npm install nodemon -D
     npm install morgan
     ```
 
-7. Modify your scripts on your package.json.  In this case, as I created a new script called "dev", then I needed to type "run" when running on my terminal.  Then type "nodemon" and the path of your main JS file which will run your server.
+7. Modify your scripts on your package.json.  In this case, as I created a new script called `dev`, then I needed to type `run` when running on my terminal.  Then type `nodemon` and the path of your main JS file which will run your server.
 
     ```
     "scripts": {
@@ -57,7 +57,8 @@ This is a step-by-step repository to learn how to build a basic rest api using t
     npm run dev
     ```
 
-8. As I am developing on Linux, I had to type the next script to connect locally postgres and my server. "-u" is for the user name, which default on postgresql is postgres.  And "psql" for postgres database properly. Open another terminal window to connect your database, and keep another one for your server.
+8. As I am developing on Linux, I had to type the next script to connect locally postgres and my server.
+`-u` is for the user name, which default on postgresql is postgres.  And `psql` for postgres database properly. Open your terminal window to connect your database, and keep another one window for your server.
 
     ```
     sudo -u postgres psql
@@ -114,7 +115,7 @@ This is a step-by-step repository to learn how to build a basic rest api using t
         ('otherexample', 'otherexample@example.com');
     ```
 
-17. To check if data is inserted manually:
+17. To check if data was succesfully inserted:
 
     ```
     SELECT * FROM <databasetablename>;
@@ -123,7 +124,7 @@ This is a step-by-step repository to learn how to build a basic rest api using t
 
     **but this is not a common way to save or get data from your database.  Let's do it using NodeJS.**
 
-18. Preferably, you should use a controller file on a folder named "controllers". Then, let's create that file!
+18. Preferably, you should use a controller file on a folder named `controllers`. Then, let's create that file!
 
     ```js
     const { Pool } = require('pg');
@@ -135,7 +136,7 @@ This is a step-by-step repository to learn how to build a basic rest api using t
     ```
     **click here for more information:** https://node-postgres.com/api/pool
 
-19. Placed on our controller file, let's create our example constructor:
+19. Placed on our controller JS file, let's create our example constructor:
 
     ```js
     const pool = new Pool({
@@ -166,9 +167,9 @@ This is a step-by-step repository to learn how to build a basic rest api using t
     };
 
     ```
-    *From `pool`, we are going to use `query` to set postgresql syntax and get data from our database*
+    *From `pool`, we are going to use `query` to set postgresql syntax and get data from our database.*
 
-    *It will return a chunk data, but for our importance, by now, use `.rows` to read data we need*
+    *It will return a chunk data, but for our importance, by now, use `.rows` to read data we need.*
 
     **for more information, click here:**  https://node-postgres.com/features/queries
 
@@ -180,8 +181,17 @@ This is a step-by-step repository to learn how to build a basic rest api using t
     router.get('/users', getUsers);
     ```
 
-    and this is going to work, if your server is succesfully running.  To test a GET request, use a navigator as simple way, but to create, update and delete, and to DO NOT USE FRONTEND tools as HTML (a form), I recommend an API tester as POSTMAN or INSOMNIA.
+    ...and this is going to work, if your server is succesfully running.  For a GET request testing, use a navigator as simple way, but to create, update and delete, and to DO NOT USE FRONTEND tools as HTML (a form), I recommend an API tester as POSTMAN or INSOMNIA.
+
+23. What is Postman? 
+
+        https://www.postman.com/
+
+24. What is Insomnia?
+
+        https://insomnia.rest/
+
 
 ---
 
-### STEP-BY-STEP / ALEJANDRO PALACIO.
+### ALEPALACIO </> STEP-BY-STEP
